@@ -17,6 +17,7 @@ export default function CreateContract() {
   const [contractor, setContractor] = useState('');
   const [items, setItems] = useState<FieldType[]>([{ name: '', description: '', price: 0 }]);
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const addItem = () => {
     setItems([...items, { name: '', description: '', price: 0 }]);
@@ -58,6 +59,9 @@ export default function CreateContract() {
     }
   };
 
+  const btnName = !loading ? "Create Contract" : "Creating Contract...";
+
+
   return (
     <PageContent title="Add Contract">
       {message && <p className="text-green-700">{message}</p>}
@@ -71,7 +75,7 @@ export default function CreateContract() {
           <div key={index} className="border m-4 mt-2 p-4 rounded-md space-y-4 bg-gray-300">
             <Input name="item-name" label="Item Name" placeholder="Enter the item name" value={item.name} onChange={(e) => handleItemChange(index, 'name', e.target.value)} required/>
             <Input name="item-description" label="Item Description" placeholder="Enter the item description" value={item.description} onChange={(e) => handleItemChange(index, 'description', e.target.value)} required/>
-            <Input type="number" name="item-price" label="Item Price" placeholder="Enter the item Price" value={item.price} onChange={(e) => handleItemChange(index, 'price', e.target.value)} required/>
+            <Input type="number" min="1" name="item-price" label="Item Price" placeholder="Enter the item Price" value={item.price} onChange={(e) => handleItemChange(index, 'price', e.target.value)} required/>
           </div>
         ))}
 
@@ -82,7 +86,7 @@ export default function CreateContract() {
 
         {/* Submit Button */}
         <div className="text-right">
-          <Button type="submit" name="Create Contract" />
+          <Button type="submit" name={btnName} />
         </div>
       </form>
     </PageContent >

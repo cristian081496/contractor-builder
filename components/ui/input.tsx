@@ -7,7 +7,8 @@ type Props = {
   type?: string,
   value?: string | number,
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void,
-  required?: boolean
+  required?: boolean,
+  min?: string
 };
 
 const Input: React.FC<Props> = ({name, label, ...props }) => {

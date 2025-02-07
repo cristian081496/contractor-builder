@@ -103,6 +103,7 @@ export default function UpdateContract() {
               type="number"
               name={`item-price-${index}`}
               label="Item Price"
+              min="1"
               placeholder="Enter the item Price"
               value={item.price}
               onChange={(e) => handleItemChange(index, 'price', Number(e.target.value))}
