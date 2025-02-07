@@ -6,6 +6,7 @@ import ContractItem from './contractItem';
 
 const ContractList = () => {
   const [contracts, setContracts] = useState<ContractType[] | []>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   // run after render
   useEffect(() => {
@@ -17,6 +18,7 @@ const ContractList = () => {
         const contract = await res.json();
         setContracts(contract);
       }
+      setLoading(false);
     }
     fetchContract();
   }, []);
@@ -45,6 +47,10 @@ const ContractList = () => {
         {contracts.map((contract: ContractType, index: number) => (
           <ContractItem contract={contract} key={contract.quoteId} onDelete={() => handleDelete(contracts[index].quoteId)} />
         ))}
+
+        {loading && <h1>Fetching data...</h1>}
+
+        {contracts.length === 0 && !loading && <h1>No Contract found.</h1>}
       </ul>
     </>
   )

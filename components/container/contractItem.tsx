@@ -13,7 +13,7 @@ const ContractItem = ({ contract, onDelete }: Props) => {
       total += quote.price;
     });
 
-    return total.toLocaleString('en-US', {
+    return Number(total).toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD',
     });
