@@ -12,6 +12,12 @@ type FieldType = {
   price: number;
 };
 
+const emptyItem: FieldType = {
+  name: '',
+  description: '',
+  price: 0
+};
+
 export default function UpdateContract() {
   const router = useRouter();
   const { quoteId } = useParams();
@@ -33,8 +39,17 @@ export default function UpdateContract() {
   }, [quoteId]);
 
   const handleItemChange = (index: number, field: keyof FieldType, value: string | number) => {
-    const updatedItems = [...items]; 
+    const updatedItems = [...items];
     updatedItems[index] = { ...updatedItems[index], [field]: value };
+    setItems(updatedItems);
+  };
+
+  const addNewItem = () => {
+    setItems([...items, { ...emptyItem }]);
+  };
+
+  const removeItem = (index: number) => {
+    const updatedItems = items.filter((_, i) => i !== index);
     setItems(updatedItems);
   };
 
@@ -65,6 +80,10 @@ export default function UpdateContract() {
     }
   };
 
+  const calculateTotal = () => {
+    return items.reduce((sum, item) => Number(sum) + ( Number(item.price) || 0), 0);
+  };
+
   return (
     <PageContent title="Update Contract">
       {message && <p className="text-green-600">{message}</p>}
@@ -80,9 +99,19 @@ export default function UpdateContract() {
         />
 
         {/* Items */}
-        <h2 className="text-xl font-semibold mt-4">Items</h2>
+        <div className="flex justify-between items-center mt-4">
+          <h2 className="text-xl font-semibold">Items</h2>
+        </div>
+
         {items.map((item, index) => (
-          <div key={index} className="border m-4 mt-2 p-4 rounded-md space-y-4 bg-gray-300">
+          <div key={index} className="border m-4 mt-2 p-4 rounded-md space-y-4 bg-gray-300 relative">
+            <button
+              type="button"
+              onClick={() => removeItem(index)}
+              className="absolute top-2 right-2 text-red-600 hover:text-red-800"
+            >
+              ✕
+            </button>
             <Input
               name={`item-name-${index}`}
               label="Item Name"
@@ -112,8 +141,19 @@ export default function UpdateContract() {
           </div>
         ))}
 
+          <button type="button" onClick={addNewItem} className="px-4 py-2 text-blue-700">
+          + Add Item
+        </button>
+
+        {/* Total */}
+        <div className="mt-4 text-right">
+          <p className="text-xl font-bold">
+            Total: ${calculateTotal().toLocaleString('en-US', { minimumFractionDigits: 2 })}
+          </p>
+        </div>
+
         {/* Submit Button */}
-        <div className="text-right">
+        <div className="text-right mt-4">
           <Button type="submit" name="Update Contract" />
         </div>
       </form>
