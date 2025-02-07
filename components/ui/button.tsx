@@ -3,6 +3,7 @@ import React from 'react'
 type Props = {
   name: string,
   type?: "button" | "submit" | "reset";
+  disabled?: boolean
 }
 
 const Button: React.FC<Props> = ({ name, ...props }) => {
