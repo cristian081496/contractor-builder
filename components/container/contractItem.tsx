@@ -8,9 +8,9 @@ type Props = {
 }
 const ContractItem = ({ contract, onDelete }: Props) => {
   const totalContract = (quotes: QuoteType[]) => {
-    let total = 0;
+    let total: number = 0;
     quotes.forEach((quote: QuoteType) => {
-      total += quote.price;
+      total += Number(quote.price);
     });
 
     return Number(total).toLocaleString('en-US', {
