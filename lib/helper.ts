@@ -1,7 +1,10 @@
 import * as fs from 'fs/promises';
 import { join } from 'path';
 
-const dataFilePath = join('/tmp', 'data.json');
+let folderName = "./tmp";
+if(process.env.APP_ENV === "LIVE") folderName = "/tmp";
+
+const dataFilePath = join(folderName, 'data.json');
 
 // function to read the JSON file
 export async function readDataFile() {
