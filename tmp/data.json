@@ -22,29 +22,5 @@
         "price": 1800
       }
     ]
-  },
-  {
-    "quoteId": "32m9e2tkg",
-    "contractor": "das",
-    "items": [
-      {
-        "id": 1,
-        "name": "dsad",
-        "description": "asdsad",
-        "price": "22"
-      }
-    ]
-  },
-  {
-    "quoteId": "8kzkj4aky",
-    "contractor": "ako",
-    "items": [
-      {
-        "id": 1,
-        "name": "dasda",
-        "description": "dasda",
-        "price": "2"
-      }
-    ]
   }
 ]
