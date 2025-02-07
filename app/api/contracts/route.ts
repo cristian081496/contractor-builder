@@ -16,8 +16,7 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const newContract = await req.json();
-    const data = await readDataFile();
-    const contracts = JSON.parse(data);
+    const contracts = await readDataFile();
 
     contracts.push(newContract);
     await writeDataFile(contracts);
