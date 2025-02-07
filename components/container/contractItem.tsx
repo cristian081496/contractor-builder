@@ -26,8 +26,9 @@ const ContractItem = ({ contract, onDelete }: Props) => {
         <Link href={`/update-contract/${contract.quoteId}`} className="font-semibold hover:underline">{contract.contractor}</Link>
         <div>
           <p>{totalContract(contract.items)}</p>
-          <div className="text-right">
+          <div className="text-right flex gap-2">
             <button className="text-sm text-red-700 text-right" onClick={onDelete}>delete</button>
+            <Link href={`/update-contract/${contract.quoteId}`} className="text-sm text-blue-700 text-right" >update</Link>
           </div>
         </div>
       </div>
