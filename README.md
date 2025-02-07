@@ -1,5 +1,5 @@
 ## Project Structure
-contractor-quote-builder/
+```
 ├── app/ # Next.js app directory
 │ ├── api/ # API routes
 │ │ └── contracts/ # Contract-related endpoints
@@ -10,6 +10,7 @@ contractor-quote-builder/
 ├── lib/ # Utility functions and shared logic
 ├── types/ # All Typescript Defind (Data Models)
 ├── tmp/ # temporary files like data.json
+```
 
 ## Tech Stack
 
