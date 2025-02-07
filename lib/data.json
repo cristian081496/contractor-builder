@@ -1,0 +1,50 @@
+[
+  {
+    "quoteId": "12345",
+    "contractor": "John Doe Construction",
+    "items": [
+      {
+        "id": 1,
+        "name": "Wooden Flooring",
+        "description": "Premium oak wood flooring installation",
+        "price": 1500
+      },
+      {
+        "id": 2,
+        "name": "Kitchen Cabinets",
+        "description": "Custom-built wooden cabinets for the kitchen",
+        "price": 2500
+      },
+      {
+        "id": 3,
+        "name": "Painting",
+        "description": "Interior wall painting with high-quality latex paint",
+        "price": 1800
+      }
+    ]
+  },
+  {
+    "quoteId": "32m9e2tkg",
+    "contractor": "das",
+    "items": [
+      {
+        "id": 1,
+        "name": "dsad",
+        "description": "asdsad",
+        "price": "22"
+      }
+    ]
+  },
+  {
+    "quoteId": "8kzkj4aky",
+    "contractor": "ako",
+    "items": [
+      {
+        "id": 1,
+        "name": "dasda",
+        "description": "dasda",
+        "price": "2"
+      }
+    ]
+  }
+]
