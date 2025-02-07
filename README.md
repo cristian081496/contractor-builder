@@ -33,9 +33,15 @@ git clone https://github.com/cristian081496/contractor-builder.git
 
 ## How to Set Up
 
-First, run the development server:
+First, install the dependecies
+```bash
+npm install
+```
+Second, run the development server:
 
 ```bash
+npm install
+
 npm run dev
 # or
 yarn dev
