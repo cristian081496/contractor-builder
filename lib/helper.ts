@@ -8,7 +8,11 @@ export async function readDataFile() {
   try {
     const data = await fs.readFile(dataFilePath, 'utf8');
     return JSON.parse(data);
-  } catch (error) {
+  } catch (error: any) {
+    if (error.code === 'ENOENT') {
+      await writeDataFile([]);
+      return [];
+    }
     console.error('Error reading file:', error);
     throw error;
   }
